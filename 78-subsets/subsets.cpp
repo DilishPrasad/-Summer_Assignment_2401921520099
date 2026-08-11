@@ -13,6 +13,7 @@ public:
         //included
         temp.push_back(arr[index]);
         subseq(arr,index+1,n,ans,temp);
+        temp.pop_back();
       }
 
 
