@@ -1,14 +1,20 @@
 class Solution {
 public:
+    int solvemem(int n,vector<int>&dp)
+    {
+         if(n==1)
+        return 1;
+        if(n==2)
+        return 2;
+        if(dp[n]!=-1)
+        return dp[n];
+
+        dp[n]= solvemem(n-1,dp)+solvemem(n-2,dp);
+        return dp[n];
+    }
     int climbStairs(int n) {
-        int a=0,b=1,i,temp;
-        for(i=1;i<=n;i++)
-        {
-            temp=a+b;
-            a=b;
-            b=temp;
-        }
-        return temp;
+        vector<int>dp(n+1,-1);
+        return solvemem(n,dp);
         
     }
 };
